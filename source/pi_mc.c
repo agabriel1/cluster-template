@@ -19,9 +19,6 @@ int main(int argc, char* argv[]) {
   double globaldata[36] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
                            -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
                            -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
-/*modified to allow up to 36 processess
-Has to be perfect square processes for good prediction*/
-
 
   nPointsTotal = atoi(argv[1]);
 
@@ -39,8 +36,6 @@ Has to be perfect square processes for good prediction*/
   x_start = (double)(rank % squareWidth) / squareWidth;
   y_start = (double)((rank / squareWidth)) / squareWidth;
 
-  //printf("Rank %d out of %d has starting x %f and starting y %f on a square of size %d \n", 
-  //       rank, size, x_start, y_start, squareWidth);
 
   for (i = 0; i < nPointsPerRegion; i++) {
     x_rand = (double)rand() / ((double)RAND_MAX * squareWidth) + x_start;
@@ -62,7 +57,6 @@ Has to be perfect square processes for good prediction*/
     double ticker =0;
     int a;
     for (a=0; a<size; a++) {
-        //printf("%f ", globaldata[a]);
         ticker +=globaldata[a];
         if(a%2 == 1){
             printf("%d processes takes ", a+1);
