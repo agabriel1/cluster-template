@@ -58,7 +58,7 @@ for i in range(0,15):
     node.addService(pg.Execute(shell="sh", command="sudo /local/repository/passwordless.sh"))
     
     node.addService(pg.Execute(shell="sh", command="sudo cp /local/repository/source/* /scratch"))
-    node.addService(pg.Execute(shell="sh", command="sudo cp /local/repository/source/* /users/al844976/scratch"))
+    node.addService(pg.Execute(shell="sh", command="sudo cp /local/repository/source/* /users/ag899460/scratch"))
   elif i == 1:
     node = request.XenVM("metadata")
     node.addService(pg.Execute(shell="sh", command="sudo bash /local/repository/slurm_install.sh"))
@@ -98,12 +98,6 @@ for i in range(0,15):
   if i != 0:
     node.addService(pg.Execute(shell="sh", command="sudo chmod 777 /local/repository/passwordless.sh"))
     node.addService(pg.Execute(shell="sh", command="sudo /local/repository/passwordless.sh"))
-  
-  
-  # This code segment is added per Benjamin Walker's solution to address the StrictHostKeyCheck issue of ssh
-  #node.addService(pg.Execute(shell="sh", command="sudo chmod 777 /local/repository/ssh_setup.sh"))
-  #node.addService(pg.Execute(shell="sh", command="sudo -H -u al844976 bash -c '/local/repository/ssh_setup.sh'"))
 
-  
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)
